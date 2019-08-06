@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ActivitiesDemo</string>
+
+    <string name="fase_01">Fase 1</string>
+    <string name="fase_02">Fase 2</string>
+    <string name="fase_03">Fase 3</string>
+    <string name="fase_04">Fase 4</string>
+</resources>
