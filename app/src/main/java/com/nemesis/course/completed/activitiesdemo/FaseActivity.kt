@@ -2,6 +2,7 @@ package com.nemesis.course.completed.activitiesdemo
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import android.widget.ImageView
 import java.io.Serializable
 
@@ -23,8 +24,6 @@ class FaseActivity: AppCompatActivity() {
         }
     }
 
-    private var fase:SuperSaiyajin = SuperSaiyajin.Fase1
-
     private lateinit var gokuSS:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +34,7 @@ class FaseActivity: AppCompatActivity() {
 
         gokuSS = findViewById(R.id.goku_ss)
 
-        fase = intent.getSerializableExtra("ss") as SuperSaiyajin
+        val fase = intent.getSerializableExtra("ss") as SuperSaiyajin
         showFase(fase)
 
         gokuSS.setOnClickListener {
@@ -44,6 +43,22 @@ class FaseActivity: AppCompatActivity() {
             if(nextFase != null) {
                 transformTo(nextFase)
             }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if(item != null) {
+            when (item.itemId) {
+                android.R.id.home -> {
+                    finish()
+                    return true
+                }
+                else -> {
+                    return super.onOptionsItemSelected(item)
+                }
+            }
+        }else{
+            return super.onOptionsItemSelected(item)
         }
     }
 
